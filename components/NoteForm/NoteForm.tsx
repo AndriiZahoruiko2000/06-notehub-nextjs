@@ -5,7 +5,7 @@ import css from "./NoteForm.module.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNote } from "@/lib/api/noteService";
+import { createNote } from "@/lib/api";
 
 interface NoteFormProps {
   onSubmit: () => void;
