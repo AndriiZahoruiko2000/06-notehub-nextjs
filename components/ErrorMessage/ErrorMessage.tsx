@@ -1,6 +1,10 @@
 import css from "./ErrorMessage.module.css";
 
-const ErrorMessage = () => {
+interface ErrorMessageProps {
+  error: Error;
+}
+
+const ErrorMessage = ({ error }: ErrorMessageProps) => {
   return <p>Could not fetch the list of notes. {error.message}</p>;
 };
 

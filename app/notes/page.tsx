@@ -10,9 +10,9 @@ import Pagination from "@/components/Pagination/Pagination";
 import Modal from "@/components/Modal/Modal";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Loader from "@/components/Loader/Loader";
-import { ErrorMessage } from "formik";
-import { useParams } from "next/navigation";
+
 import NoteList from "@/components/NoteList/NoteList";
+import ErrorMessage from "../error";
 
 const NoteDetailsClient = () => {
   const [page, setPage] = useState(1);
@@ -31,7 +31,7 @@ const NoteDetailsClient = () => {
   const notesList = noteQuery.data?.notes || [];
   const totalPages = noteQuery.data?.totalPages ?? 0;
   const loading = noteQuery.isLoading;
-  const error = noteQuery.isError;
+  const isError = noteQuery.isError;
 
   const handleModalClick = () => {
     setIsOpenModal(true);
@@ -59,7 +59,7 @@ const NoteDetailsClient = () => {
       </header>
       <main>{notesList.length > 0 && <NoteList notesList={notesList} />}</main>
       {loading && <Loader />}
-      {error && <ErrorMessage />}
+      {isError && <ErrorMessage error={noteQuery.error} />}
       {isOpenModal && (
         <Modal onClose={closeModal}>
           <NoteForm onSubmit={handleSubmit} onClose={closeModal} />
