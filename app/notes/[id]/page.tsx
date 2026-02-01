@@ -16,7 +16,7 @@ const Page = async ({ params }: PageProps) => {
 
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: ["getNoteDetail", id],
     queryFn: () => fetchNoteById(id),
   });

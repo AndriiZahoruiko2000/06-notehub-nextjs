@@ -12,7 +12,7 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 import Loader from "@/components/Loader/Loader";
 
 import NoteList from "@/components/NoteList/NoteList";
-import ErrorMessage from "../error";
+import ErrorMessage from "./error";
 
 const NotesClient = () => {
   const [page, setPage] = useState(1);
